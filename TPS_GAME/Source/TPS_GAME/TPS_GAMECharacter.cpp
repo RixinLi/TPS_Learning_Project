@@ -54,8 +54,10 @@ void ATPS_GAMECharacter::SetupPlayerInputComponent(class UInputComponent* Player
 {
 	// Set up gameplay key bindings
 	check(PlayerInputComponent);
+	/* !!!不要点击跳跃
 	PlayerInputComponent->BindAction("Jump", IE_Pressed, this, &ACharacter::Jump);
 	PlayerInputComponent->BindAction("Jump", IE_Released, this, &ACharacter::StopJumping);
+	*/
 
 	PlayerInputComponent->BindAxis("MoveForward", this, &ATPS_GAMECharacter::MoveForward);
 	PlayerInputComponent->BindAxis("MoveRight", this, &ATPS_GAMECharacter::MoveRight);
@@ -68,9 +70,11 @@ void ATPS_GAMECharacter::SetupPlayerInputComponent(class UInputComponent* Player
 	PlayerInputComponent->BindAxis("LookUp", this, &APawn::AddControllerPitchInput);
 	PlayerInputComponent->BindAxis("LookUpRate", this, &ATPS_GAMECharacter::LookUpAtRate);
 
-	// handle touch devices
+	// handle touch devices 
+	/* !!! 不要点击跳跃
 	PlayerInputComponent->BindTouch(IE_Pressed, this, &ATPS_GAMECharacter::TouchStarted);
 	PlayerInputComponent->BindTouch(IE_Released, this, &ATPS_GAMECharacter::TouchStopped);
+	*/
 
 	// VR headset functionality
 	PlayerInputComponent->BindAction("ResetVR", IE_Pressed, this, &ATPS_GAMECharacter::OnResetVR);
